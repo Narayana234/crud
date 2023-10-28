@@ -9,17 +9,19 @@ import axios from "axios"
 class SignUp extends Component{
 state = {
     name : "xx",
-    email: "yyy"
+    email: "yyy",
+    password : "bb"
 }
 
 storedData = (event) =>{
-    const {name,email} = this.state;
+    const {name,email,password} = this.state;
     const obj = {
         name,
-        email
+        email,
+        password
     }
    console.log(obj)
-   const url = "http://localhost:5001/students/create-student";
+   const url = "http://localhost:5002/students/create-student";
 
    axios.post(url,obj).then((res) =>{
     if(res.status === 200){
@@ -43,6 +45,8 @@ render(){
             <input type="text" id="name" placeholder = "Enter your Name" onChange = {(event) =>(this.setState({name:event.target.value}))}/>
            <label for="email"> Email</label>
            <input type="email" id="email" onChange = {(event) =>(this.setState({email:event.target.value}))}/>
+           <label for="pas"> Password</label>
+           <input type = "password" id="pas" onChange = {((event) =>(this.setState({password:event.target.value})))}/>
            <input type="submit"/>
              </form>
              <Link to ="/login"> HI </Link>

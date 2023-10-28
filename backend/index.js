@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/students",studentRoute)
-const port = 5001
+const port = 5002
 app.listen(port, () =>{
     console.log("Server connected")
 })
